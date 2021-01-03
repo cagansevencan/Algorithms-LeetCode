@@ -55,7 +55,21 @@ public class PermuteString {
         }
     }
 
-    
+    //Function to print all the distinct permutations of str
+    static void printDistinctPermute(String str, String ans){
+        if(str.length() == 0){
+            System.out.println(ans + " ");
+            return;
+        }
+
+        //Make a boolean array of size 26 which
+        //stores false by default and make true
+        //at the position which alphabet is being used
+        boolean alpha[] = new boolean[26];
+        for(int i = 0; i < str.length(); i++){
+
+        }
+    }
 
     public static void main(String[] args) {
         Integer[] elements = {1,2,3,4};
