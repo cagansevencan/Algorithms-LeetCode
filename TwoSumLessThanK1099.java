@@ -25,9 +25,28 @@ public class TwoSumLessThanK1099 {
         }
         return max;
     }
+
+    public static int twoSumLessThanKBinaryApproach(int[] nums, int k) {
+        int max = -1;
+        Arrays.sort(nums);
+        for(int i = 0; i < nums.length; i++){
+            int idx = Arrays.binarySearch(nums, i + 1, nums.length, k - nums[i] - 1);
+            int j = (idx >= 0 ? idx : ~idx);
+            if(j == nums.length || nums[j] > k - nums[i] - 1){
+                j--;
+            }
+            if(j > i){
+                max = Math.max(max, nums[i] + nums[j]);
+            }
+        }
+        return max;
+    }
+
     public static void main(String[] args) {
         int[] nums = {34,23,1,24,75,33,54,8};
         int n = twoSumLessThanK(nums, 60);
+        int n2 = twoSumLessThanKBinaryApproach(nums, 60);
         System.out.println(n);
+        System.out.println(n2);
     }
 }
