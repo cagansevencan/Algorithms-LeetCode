@@ -71,12 +71,11 @@ public class PermuteString {
         }
     }
 
+
     public static void main(String[] args) {
         Integer[] elements = {1,2,3,4};
-
         System.out.println("Recursive: ");
         printAllRecursive(elements, ';');
-
         String s = "boat";
         printPermute(s, "");
     }
