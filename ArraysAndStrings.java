@@ -34,7 +34,7 @@ public class ArraysAndStrings {
     }
 
     public static void main(String[] args) {
-        String s = "alibaba";
+        String s = "alibzrr";
         boolean v = isUnique(s);
         System.out.println(v);
     }
