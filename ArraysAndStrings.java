@@ -1,5 +1,12 @@
 import java.util.HashSet;
 
+//Time Complexity is O(n), where n is the length of the string
+// Space is O(1) for the char set, O(n) for HashSet
+// In the case we don't assume the char set is fixed, then the complexity would be O(c) space and O(min(c,n)) or O(c) time, where c is the size of the char set.
+// We can also reduce space usage by a factor of eight by using a bit vector. 
+// We will assume, in the below code, that the string only
+// uses the lowecase ketters a through z. This will allow us to use a just a single int. 
+
 public class ArraysAndStrings {
 
     //Implement an algo to determine if a string has all unique chars.
@@ -32,6 +39,20 @@ public class ArraysAndStrings {
         return true;
     }
 
+    public static boolean isUniqueCharsVectors(String str){
+        if(str.length() > 128) return false;
+        int checker = 0;
+        for(int i = 0; i < str.length(); i++){
+        int strVal = str.charAt(i);
+        int val = strVal - 'a';
+        if((checker & (1 << val)) > 0){
+            return false;
+        }
+        checker |= (1 << val);
+        }
+        return true;
+    }
+
 
     public static String joinWords(String[] words){
         String sentence = "";
@@ -49,9 +70,9 @@ public class ArraysAndStrings {
     }
 
     public static void main(String[] args) {
-        String s = "alibzr";
+        String s = "alirbzr";
         //boolean v = isUniqueUsingMap(s);
-        boolean v = isUniqueChars(s);
+        boolean v = isUniqueCharsVectors(s);
         System.out.println(v);
     }
 
