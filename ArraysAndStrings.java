@@ -1,10 +1,11 @@
-import java.util.HashMap;
 import java.util.HashSet;
 
 public class ArraysAndStrings {
 
     //Implement an algo to determine if a string has all unique chars.
-    public static boolean isUnique(String word){
+    public static boolean isUniqueUsingMap(String word){
+        if(word.length() > 128) return false; //ASCII values atmost have 128 unless 
+                                              // it is extended
 
         HashSet<Character> map = new HashSet<>();
         for(char c: word.toCharArray()){
@@ -17,6 +18,20 @@ public class ArraysAndStrings {
         return true;
     }
 
+    public static boolean isUniqueChars(String str){
+        if(str.length() > 128) return false;
+
+        boolean[] char_set = new boolean[128];
+        for(int i = 0; i < str.length(); i++){
+            int val = str.charAt(i);
+            if(char_set[val]) { //If we already found it
+                return false;
+            }
+            char_set[val] = true;
+        }
+        return true;
+    }
+
 
     public static String joinWords(String[] words){
         String sentence = "";
@@ -25,7 +40,7 @@ public class ArraysAndStrings {
         }
         return sentence;
     }
-    public static String StringBuilder(String[] words){
+    public static String stringBuilder(String[] words){
         StringBuilder sentence = new StringBuilder();
         for(String w : words){
             sentence.append(w);
@@ -34,8 +49,9 @@ public class ArraysAndStrings {
     }
 
     public static void main(String[] args) {
-        String s = "alibzrr";
-        boolean v = isUnique(s);
+        String s = "alibzr";
+        //boolean v = isUniqueUsingMap(s);
+        boolean v = isUniqueChars(s);
         System.out.println(v);
     }
 
