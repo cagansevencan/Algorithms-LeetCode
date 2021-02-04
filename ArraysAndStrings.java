@@ -70,7 +70,7 @@ public class ArraysAndStrings {
     }
 
     public static void main(String[] args) {
-        String s = "alirbzr";
+        String s = "alrirbz";
         //boolean v = isUniqueUsingMap(s);
         boolean v = isUniqueCharsVectors(s);
         System.out.println(v);
