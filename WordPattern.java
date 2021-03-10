@@ -4,7 +4,9 @@ public class WordPattern {
         public static boolean wordPattern(String pattern, String s) {
             HashMap<Character, String> map_char = new HashMap();
             HashMap <String, Character> map_word = new HashMap();
+
             String[] words = s.split(" ");
+
             if (words.length != pattern.length())
                 return false;
             for (int i = 0; i < words.length; i++) {
