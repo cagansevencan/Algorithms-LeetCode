@@ -6,14 +6,15 @@ public class CSP {
         int[] a1 = {-1, 3, 8, 2, 9, 5};
         int[] a2 = {4, 1, 2, 10, 5, 20};
         int aTarget = 24;
-        int [] pair = closestSumPair(a1, a2, aTarget); //should return {5, 20} or {3, 20}
-        System.out.println(Arrays.toString(pair));
+        //closestSumPair(a1, a2, aTarget); //should return {5, 20} or {3, 20}
 
-        
+
         int[] b1 = {7, 4, 1, 10};
         int[] b2 = {4, 5, 8, 7};
         int bTarget = 13;
-        // closestSumPair(b1, b2, bTarget) should return {4, 8}, {7, 7}, {7, 5}, or {10, 4}
+        int [] pair = closestSumPair(b1, b2, bTarget); //should return {4, 8}, {7, 7}, {7, 5}, or {10, 4}
+        System.out.println(Arrays.toString(pair));
+
 
         int[] c1 = {6, 8, -1, -8, -3};
         int[] c2 = {4, -6, 2, 9, -3};
