@@ -35,7 +35,7 @@ class MyHeapComparator implements Comparator<MyHeapNode> {
 
 
 public class KthSmallestInMatrix378 {
-    public int kthSmallest(int[][] matrix, int k) {
+    public static int kthSmallest(int[][] matrix, int k) {
 
         int N = matrix.length;
 
@@ -64,5 +64,11 @@ public class KthSmallestInMatrix378 {
         }
 
         return element.getValue();
+    }
+
+    public static void main(String[] args) {
+        int [][] matrix = {{1,3,7}, {5,10,12}, {6,12,15}};
+        int t = kthSmallest(matrix,5);
+        System.out.println("Output is : " + t);
     }
 }
