@@ -1,7 +1,7 @@
 import java.util.PriorityQueue;
 
 public class MaxScoreFromRemStones1753 {
-    public int maximumScore(int a, int b, int c) {
+    public static int maximumScore(int a, int b, int c) {
         //We'll use a maxheap
 
         PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>((a1, b1) -> (b1 - a1));
@@ -29,5 +29,10 @@ public class MaxScoreFromRemStones1753 {
             total++;
         }
         return total;
+    }
+
+    public static void main(String[] args) {
+       int t = maximumScore(2,4,6);
+        System.out.println("Output is : " + t);
     }
 }
