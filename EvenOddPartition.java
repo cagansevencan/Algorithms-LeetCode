@@ -1,3 +1,7 @@
+
+//Linear in Time
+//Constant in Space complexity
+
 public class EvenOddPartition {
     public static class ListNode {
         int val;
