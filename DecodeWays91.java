@@ -34,7 +34,9 @@ public class DecodeWays91 {
         // whatever is 1 value later than me
         int answer = recursiveWithMemo(i +1, s);
         //we have 2 digit encoding to use, so add that recursive call to the answer
-        if(Integer.parseInt(s.substring(i, i+2)) <= 26){
+        String m = s.substring(i, i+2);
+        int f = Integer.parseInt(s.substring(i, i+2));
+        if(f <= 26){
         answer += recursiveWithMemo(i+2, s);
         }
         memo.put(i, answer);
@@ -42,7 +44,7 @@ public class DecodeWays91 {
     }
 
     public static void main(String[] args) {
-        String test = "226";
+        String test = "2326";
         int num = numDecodings(test);
         System.out.println(num);
     }
