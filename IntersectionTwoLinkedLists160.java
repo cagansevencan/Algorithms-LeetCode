@@ -44,7 +44,6 @@ public class IntersectionTwoLinkedLists160 {
         ListNode B2 = new ListNode(1);;
         B1.next = B2;
 
-        B2.next = A2;
 
 
         ListNode pA = getIntersectionNode(headA, headB);
