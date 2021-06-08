@@ -1,6 +1,5 @@
-
-// Definition for singly-linked list.
-
+import java.util.HashSet;
+import java.util.Set;
 
 public class IntersectionTwoLinkedLists160HashTable {
 
@@ -14,7 +13,19 @@ public class IntersectionTwoLinkedLists160HashTable {
     }
 
     public static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-      
+        Set<ListNode> visited = new HashSet<>();
+        //Traverse thru B and store its nodes
+        while(headB != null){
+            visited.add(headB);
+            headB = headB.next;
+        }
+        while(headA != null){
+            if(visited.contains(headA)){
+                return headA;
+            }
+            headA = headA.next;
+        }
+        return null;
     }
 
     public static void main(String[] args) {
