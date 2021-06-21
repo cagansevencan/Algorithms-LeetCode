@@ -1,5 +1,6 @@
 public class RotateList61 {
-
+    //Time complexity: 0(N) where N is a number of elements in the list.
+    //Space complexity: 0(1) since it's a constant space solution
      public static class ListNode {
       int val;
       ListNode next;
@@ -8,8 +9,32 @@ public class RotateList61 {
       ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  }
 
-    public ListNode rotateRight(ListNode head, int k) {
+    public static ListNode rotateRight(ListNode head, int k) {
+         //base cases
+        if(head == null)return null;
+        if(head.next == null) return head;
 
+        //close the linked list into the ring
+        ListNode oldTail = head;
+        int n;
+        for(n = 1; oldTail.next != null; n++){
+            oldTail = oldTail.next;
+        }
+        oldTail.next = head;
+
+        // find new tail : (n - k % n - 1)th node
+        // and new head : (n - k % n)th node
+
+        ListNode newTail = head;
+        for(int i = 0; i < n - k % n - 1; i++){
+            newTail = newTail.next;
+        }
+        ListNode newHead = newTail.next;
+
+        //break the ring
+        newTail.next = null;
+
+        return newHead;
     }
 
     public static void append(ListNode head, int new_data)
@@ -47,5 +72,7 @@ public class RotateList61 {
          append(head, 3);
          append(head, 4);
          append(head, 5);
+
+         rotateRight(head, 1);
     }
 }
