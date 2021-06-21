@@ -1,4 +1,4 @@
-public class SwapPairsProblem {
+public class SwapPairsProblem24 {
     public static class ListNode {
       int val;
       ListNode next;
@@ -83,7 +83,7 @@ public class SwapPairsProblem {
 
     public static void main(String[] args) {
 
-        SwapPairsProblem ob = new SwapPairsProblem();
+        SwapPairsProblem24 ob = new SwapPairsProblem24();
         ListNode head = new ListNode(1);
         append(head, 2);
         append(head, 3);
