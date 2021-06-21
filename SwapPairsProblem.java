@@ -7,22 +7,22 @@ public class SwapPairsProblem {
       ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  }
 
-    public ListNode swapPairs(ListNode head) {
+    public static ListNode swapPairs(ListNode head) {
         //if list has no node or 1 node left
-        if(head.next == null || head ==null){
+        if(head ==null || head.next == null){
             return head;
         }
-        //Nodex to be swapped
-        swapPairs(head.next.next);
-        swap(head);
-        return head;
-    }
-
-    public void swap(ListNode head){
+        //Nodes to be swapped
         ListNode firstNode = head;
         ListNode secondNode = head.next;
-        firstNode.next = null;
-        secondNode.next = head;
+
+        //Swapping
+        firstNode.next = swapPairs(secondNode.next);
+        secondNode.next = firstNode;
+
+
+        //Head is the second node now
+        return secondNode;
     }
 
     public static void append(ListNode head, int new_data)
@@ -53,7 +53,6 @@ public class SwapPairsProblem {
         return;
     }
 
-
     public static void main(String[] args) {
 
         SwapPairsProblem ob = new SwapPairsProblem();
@@ -61,5 +60,7 @@ public class SwapPairsProblem {
         append(head, 2);
         append(head, 3);
         append(head, 4);
+       head = swapPairs(head);
+
     }
 }
