@@ -52,5 +52,12 @@ public class IntersectionTwoLinkedLists160HashTable {
 
         B2.next = A2;
 
+        ListNode pA = getIntersectionNode(headA, headB);
+        if(pA!=null) {
+            System.out.println(pA.val);
+        }else{
+            System.out.println("null");
+        }
+
     }
 }
