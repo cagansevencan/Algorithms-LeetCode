@@ -47,8 +47,11 @@ public class IntersectionTwoLinkedLists160 {
 
 
         ListNode pA = getIntersectionNode(headA, headB);
-        System.out.println(pA.val);
-
+        if(pA!=null) {
+            System.out.println(pA.val);
+        }else{
+            System.out.println("null");
+        }
     }
 }
 
