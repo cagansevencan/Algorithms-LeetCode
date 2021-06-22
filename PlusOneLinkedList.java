@@ -7,8 +7,30 @@ public class PlusOneLinkedList {
       ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  }
 
-    public ListNode plusOne(ListNode head) {
+    public static ListNode plusOne(ListNode head) {
+        ListNode sentinel = new ListNode(0);
+        sentinel.next = head;
+        ListNode notNine = sentinel;
 
+        //find the rightmost non-nine digit
+        while(head != null){
+            if(head.val != 9){
+                notNine = head;
+            }
+            head = head.next;
+        }
+
+        //increase this rightmost not-nine digits by 1
+        notNine.val++;
+        notNine = notNine.next;
+
+        //set all the following nines to zeros
+        while(notNine != null){
+            notNine.val = 0;
+            notNine = notNine.next;
+        }
+
+        return sentinel.val != 0 ? sentinel : sentinel.next;
     }
 
   public static void append(ListNode head, int new_data)
@@ -41,10 +63,15 @@ public class PlusOneLinkedList {
 
     public static void main(String[] args) {
          ListNode head = new ListNode(1);
-         append(head, 2);
-         append(head, 3);
          append(head, 4);
-         append(head, 5);
+         append(head, 9);
+         append(head, 3);
+         append(head, 2);
+         append(head, 9);
+         append(head, 8);
+         append(head, 9);
+
+         head = plusOne(head);
 
     }
 }
