@@ -1,5 +1,4 @@
 import java.util.HashSet;
-import java.util.Locale;
 
 public class PalindromePermutation {
     //We dont have to, should not have to generate all permutations
@@ -12,20 +11,21 @@ public class PalindromePermutation {
         for(char c: s.toCharArray()){
             if(!map.contains(c)) {
                 map.add(c);
+                count+= 1;
             }else{
-                count += 2;
+                count -= 1;
             }
         }
         if(count % 2 == 0){
-            return true;
-        }else{
             return false;
+        }else{
+            return true;
         }
     }
 
     public static void main(String[] args) {
 
-        Boolean b = isPalindromePermutation(new String("Tact Coa"));
+        Boolean b = isPalindromePermutation(new String("TTTTeneTTTT"));
         System.out.println(b);
     }
 
