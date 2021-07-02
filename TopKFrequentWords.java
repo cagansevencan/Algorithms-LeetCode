@@ -2,7 +2,7 @@ import java.util.*;
 
 public class TopKFrequentWords {
 
-    public List<String> topKFrequent(String[] words, int k) {
+    public static List<String> topKFrequent(String[] words, int k) {
         Map<String, Integer> map = new HashMap<>();
         for(String word : words){
             map.put(word, map.getOrDefault(word, 0)+1);
@@ -19,7 +19,7 @@ public class TopKFrequentWords {
 
     }
 
-    class MyComparator implements Comparator<Map.Entry<String, Integer>> {
+    static class MyComparator implements Comparator<Map.Entry<String, Integer>> {
         @Override
         public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
             String word1 = o1.getKey();
@@ -32,6 +32,14 @@ public class TopKFrequentWords {
                 return word1.compareTo(word2);
             }
         }
+    }
+
+    public static void main(String[] args) {
+        String[] words = {"the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"};
+        int k = 4;
+        List<String> result = new LinkedList<>();
+        result = topKFrequent(words, k);
+        System.out.println(result);
     }
 
 
