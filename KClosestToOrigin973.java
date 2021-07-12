@@ -2,7 +2,7 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class KClosestToOrigin973 {
-    public int[][] kClosest(int[][] points, int k) {
+    public static int[][] kClosest(int[][] points, int k) {
         PriorityQueue<int[]> closest = new PriorityQueue<int[]>(new Comparator<int[]>() {
             @Override
             public int compare(int[] first, int[] sec) {
@@ -23,8 +23,13 @@ public class KClosestToOrigin973 {
         return results;
     }
 
-    private int calculateDistance(int [] point){
+    private static int calculateDistance(int [] point){
         return point[0] * point[0] + point[1] * point[1];
     }
 
+    public static void main(String[] args) {
+        int [][] points = {{3,3},{5,-1},{-2,4}};
+        int k = 2;
+        int results[][] = kClosest(points, k);
+    }
 }
