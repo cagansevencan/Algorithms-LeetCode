@@ -25,7 +25,6 @@ public class QueueWithStacks232 {
             while (!stack.isEmpty()) {
                 secondStack.push(stack.pop());
             }
-            secondStack.pop();
         }
         return secondStack.pop();
     }
