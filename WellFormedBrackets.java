@@ -16,8 +16,8 @@ public class WellFormedBrackets {
 
             if (map.keySet().contains(curr)) {
                 stack.push(curr);
-            } else if (map.values().contains(curr) || !stack.empty()
-                    || map.get(stack.peek()) == curr) {
+            } else if (map.values().contains(curr) && !stack.empty()
+                    && map.get(stack.peek()) == curr) {
                 stack.pop();
             } else {
                 return false;
@@ -28,7 +28,7 @@ public class WellFormedBrackets {
     }
 
     public static void main(String[] args) {
-        String s = "{)";
+        String s = "[(){}]";
         isValid(s);
     }
 }
