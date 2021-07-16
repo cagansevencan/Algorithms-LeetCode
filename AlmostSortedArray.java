@@ -10,7 +10,7 @@ public class AlmostSortedArray {
             minHeap.offer(almostSortedList[i]);
         }
 
-        for (int i = 0; i < almostSortedList.length; i++) {
+        for (int i = m; i < almostSortedList.length; i++) {
             minHeap.offer(almostSortedList[i]);
             result.add(minHeap.poll());
         }
@@ -20,5 +20,10 @@ public class AlmostSortedArray {
         }
 
         return result;
+    }
+
+    public static void main(String[] args) {
+        ArrayList<Integer[]> list = new ArrayList<>();
+        list.add(new Integer[]{3,2,1,4,6,5});
     }
 }
