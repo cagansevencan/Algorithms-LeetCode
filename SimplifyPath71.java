@@ -1,4 +1,4 @@
-public class SimplifyPath {
+public class SimplifyPath71 {
     public static String simplifyPath(String path) {
         int j = path.lastIndexOf("/");
         int i = path.lastIndexOf("/", j-1) ;
