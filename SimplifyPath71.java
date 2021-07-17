@@ -1,18 +1,31 @@
+import java.util.Stack;
+
 public class SimplifyPath71 {
     public static String simplifyPath(String path) {
-        int j = path.lastIndexOf("/");
-        int i = path.lastIndexOf("/", j-1) ;
+        Stack<String> stack  = new Stack<>();
+        String[] components = path.split("/");
 
-        String newPath;
-        newPath = path.substring(i, j);
+        for(String directory : components){
+            if(directory.equals(".") || directory.isEmpty()){
+                continue;
+            }else if(directory.equals("..")){
+                if(!stack.isEmpty())
+                stack.pop();
+            }else{
+                stack.add(directory);
+            }
+        }
 
-        String lastString = newPath.replace("..", "");
-
-        return lastString;
+        StringBuilder res = new StringBuilder();
+        for(String dir : stack){
+            res.append("/");
+            res.append(dir);
+        }
+        return res.length() > 0 ? res.toString() : "/";
     }
 
     public static void main(String[] args) {
-        String s=  "/../";
+        String s=  "/a/./b/../../c/";
         String a;
         a = simplifyPath(s);
         System.out.println(a);
