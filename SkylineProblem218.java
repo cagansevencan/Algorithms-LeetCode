@@ -1,5 +1,6 @@
 import java.util.*;
-
+//Time Complexity : O(NlogN)
+//Space Complexity : O(N)
 public class SkylineProblem218 {
 
 
@@ -24,7 +25,7 @@ public class SkylineProblem218 {
         }
     }
 
-    public static List<int[]> getSkyline(int[][] buildings) {
+    public static List<List<Integer>> getSkyline(int[][] buildings) {
         //for all start and end of the buildings put them into list of BuildingPoint
         BuildingPoint[] buildingPoints = new BuildingPoint[buildings.length*2];
         int index = 0;
@@ -51,7 +52,7 @@ public class SkylineProblem218 {
         queue.put(0,1); //0 occurs 1 time, although  there is no building with 0 height
         //queue1.add(0);
         int prevMaxHeight = 0;
-        List<int[]> result = new ArrayList<>();
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
         for(BuildingPoint buildingPoint : buildingPoints){
             //if it is start of building then add height to map. If height already exist then
             //increment the value
@@ -78,7 +79,7 @@ public class SkylineProblem218 {
             //if height changes from previous height then this building x becomes critical x.
             //So add it to the result.
             if(prevMaxHeight != currentMaxHeight){
-                result.add(new int[]{buildingPoint.x, currentMaxHeight});
+                result.add(new ArrayList<Integer>() {{add(buildingPoint.x); add(currentMaxHeight);}});
                 prevMaxHeight = currentMaxHeight;
             }
         }
@@ -87,7 +88,9 @@ public class SkylineProblem218 {
     }
 
     public static void main(String[] args) {
-
+        int[][] buildings = {{2,9,10}, {3,7,15}, {5,12,12}, {15,20,10}, {19,24,8}};
+        List<List<Integer>> result = getSkyline(buildings);
+        System.out.println(result);
     }
 }
 
